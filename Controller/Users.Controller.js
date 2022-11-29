@@ -76,9 +76,9 @@ async function createUser(req,res){
                 console.log(err);
             }else{
                 console.log("Email sent");
+                res.status(200).json({message:"User Created",user:usr});
             }
         });
-        res.status(200).json({message:"User Created",user:usr});
     }else{
         res.status(400).json({message:"User Already Exists"});
         }
@@ -122,9 +122,9 @@ async function resendOtp(req,res){
                 console.log(err);
             }else{
                 console.log("Email sent");
+                res.status(200).json({message:"Otp Sent"});
             }
         });
-        res.status(200).json({message:"Otp Sent"});
     }catch(err){
         console.log(err);
     }
