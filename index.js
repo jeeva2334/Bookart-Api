@@ -32,10 +32,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser());
 
-app.use('/books',require('./routes/Books.Routes.js'));
-
-
-
 app.post('/users/signup',createUser);
 app.post('/users/verify',verifyOtp);
 app.post('/users/login',login);
