@@ -38,7 +38,7 @@ async function createUser(req,res){
         const usr1 = await Users.findOne({email});
     
         if(!usr1){
-            if(usr1.phone){
+            if(!usr1.phone){
                 const user = new Users({
                     name:name,
                     phone:phone,
