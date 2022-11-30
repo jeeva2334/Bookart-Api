@@ -103,7 +103,7 @@ app.get('/:col', async (req, res) => {
 
 // Catch all handler for all other request.
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.json({message:"Hello World"})
 });
 
 // Start the server
