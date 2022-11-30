@@ -36,10 +36,12 @@ async function createUser(req,res){
         const {name,phoneno,email,password} = req.body;
         const pass = hashPassword(password);
         const usr1 = await Users.findOne({email});
-        const phno = await Users.findOne({phoneno});
+        // const phno = await Users.findOne({phoneno:phoneno});
+        // console.log(phno);
+
     
         if(!usr1){
-            if(!phno){
+            // if(!phno){
                 const user = new Users({
                     name:name,
                     phone:phoneno,
@@ -82,12 +84,9 @@ async function createUser(req,res){
                         res.status(200).json({message:"User Created",user:usr});
                     }
                 });
-            }else {
-                res.send("phone no Already Exists");
+            }else{
+                res.status(400).json({message:"User Already Exists"});
             }
-        }else{
-            res.status(400).json({message:"User Already Exists"});
-        }
     }catch(err){
         console.log(err);
     }
