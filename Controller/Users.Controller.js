@@ -33,15 +33,16 @@ function verifyPassword(password,hash){
 // create new user
 async function createUser(req,res){
     try{
-        const {name,phone,email,password} = req.body;
+        const {name,phoneno,email,password} = req.body;
         const pass = hashPassword(password);
         const usr1 = await Users.findOne({email});
+        const phno = await Users.findOne({phoneno});
     
         if(!usr1){
-            if(!usr1.phone){
+            if(!phno){
                 const user = new Users({
                     name:name,
-                    phone:phone,
+                    phone:phoneno,
                     email:email,
                     password:pass
                 });
