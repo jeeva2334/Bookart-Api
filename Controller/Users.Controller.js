@@ -219,7 +219,7 @@ async function login(req,res){
 
 async function logout(req,res){
     try{
-        res.clearCookie("token").send("Logout Successfull");;
+        res.clearCookie("token").json({message:"Logout Successfull"});;
     }catch(err){
         console.log(err);
     }
