@@ -23,7 +23,7 @@ const {
   deleteBook
 } = require('./Controller/Books.controller') 
 
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}).then(() => console.log('MongoDB Connected')).catch(err => console.log(err));
+mongoose.connect("mongodb+srv://sanju:jeeva@cluster0.coo6nxz.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true}).then(() => console.log('MongoDB Connected')).catch(err => console.log(err));
 
 app.use((req,res,next)=>{
   res.setHeader("Access-Control-Allow-Origin", "*");
