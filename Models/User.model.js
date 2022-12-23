@@ -1,16 +1,14 @@
-//user schema
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var UserSchema = new Schema({
-    name:{
+const User = Schema({
+    fullname:{
         type:String,
         required:true
     },
     phone:{
-        type:Number,
-        required:true,
-        unique:true
+        type:String,
+        required:true
     },
     email:{
         type:String,
@@ -20,10 +18,6 @@ var UserSchema = new Schema({
     password:{
         type:String,
         required:true
-    },
-    booksTaken:{
-        type:Array,
-        default:[]
     },
     createdAt:{
         type:Date,
@@ -35,13 +29,17 @@ var UserSchema = new Schema({
     },
     validTill:{
         type:Date,
-        default:Date.now() + 3600000
+        default:Date.now()
     },
     isAuth:{
         type:Boolean,
         default:false
+    },
+    booksTaken:{
+        type:Array,
+        default:[]
     }
-})
+});
 
-const Users = mongoose.model('Users',UserSchema);
-module.exports = Users;
+const user = mongoose.model('user',User);
+module.exports = user;
